@@ -1,1 +1,1 @@
-# Ping-pong game like aon atari but colored
+# Ping-pong game like on atari but colored
