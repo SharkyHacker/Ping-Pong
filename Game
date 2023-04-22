@@ -40,6 +40,8 @@ class Player (GameSprite):
 class Ball(GameSprite):
     def __init__(self, image_file, player_x, player_y, speed, width, height):
         super().__init__(image_file, player_x, player_y, speed, width, height)
+        self.image.fill((0,0,0))
+        draw.circle(self.image, (255, 255, 255), (height // 2, width //  2), height // 2)
         self.speed_x = speed
         self.speed_y = speed
     def update(self):
@@ -87,10 +89,10 @@ while game == True:
             SuperUltraBall.speed_x *= -1
         if sprite.collide_rect(SuperUltraBall, player2):
             SuperUltraBall.speed_x *= -1
-        if ball.rect.x < 0:
+        if SuperUltraBall.rect.x < 0:
             finish = True
             window.blit(p1_lose, (350, 250))
-        if ball.rect.x > 700:
+        if SuperUltraBall.rect.x > 700:
             finish = True
             window.blit(p2_lose, (350, 250))
             
@@ -98,4 +100,3 @@ while game == True:
      
     clock.tick(FPS) 
     display.update()
-
